@@ -1,0 +1,184 @@
+<div class="image-upload" style="margin-left: 200px; margin-top: 7px;">
+    <input class="image-upload__input" type="file" name="myFile[]" id="myFile" show>
+</div>
+
+
+<div class="form-group">
+    <p *ngFor="let user of users" style="margin-left: 200px;">
+       i am {{user.firstname}} {{user.lastname}}<br>
+       and i am  above {{user.age}} years and you<br> 
+       can send you emails to {{user.email}}<br> 
+       i live in th state of {{user.state}}.<br>
+       i like to play hockey, football and <br>
+       reading books. and please send me newsletters,<br>
+       please reach out me on my phone number<br>
+      {{user.mobilenumber}}. 
+    </p>
+</div>
+
+
+
+<form [formGroup]="form">
+    <div class="form-group">
+        <input type="text"class="form-control" style="width: 350px;margin-top: 1px;height: 45px;margin-left: 750px" placeholder="First Name" formControlName="firstname" maxlength="20">
+    </div>
+    <div *ngIf="form.controls.firstname.touched && form.controls.firstname.invalid" style="width: 350px;margin-left: 750px;height: 45px;" class="alert alert-danger">
+        <div *ngIf="form.controls.firstname.hasError('required')">Please Enter Fisrt Name</div>
+    </div>
+</form>
+<form [formGroup]="form">
+            <div class="form-group">
+                <input class="form-control" style="width: 350px;margin-left: 750px;height: 45px;" placeholder="Last Name" formControlName="lastname">
+            </div>
+            <div *ngIf="form.controls.lastname.touched && form.controls.lastname.invalid" style="width: 350px;margin-left: 750px;height: 45px;" class="alert alert-danger">
+                <div *ngIf="form.controls.lastname.hasError('required')">Please Enter Last Name</div>
+            </div>
+</form>
+
+<div class="slider" style="margin-left: 750px;">
+    Age: <input type="range" style="width: 315px;" min="0" max="100" value="20" oninput="rangeValue.innerText=this.value">
+    <p id="rangeValue">20</p>
+  </div>
+
+
+
+<form [formGroup]="form">
+    <div class="form-group">
+        <input type="text"class="form-control" style="width: 350px;margin-left: 750px;height: 45px;margin-top: 4px;" placeholder="Email" formControlName="email">
+    </div>
+    <div *ngIf="form.controls.email.touched && form.controls.email.invalid" style="width: 350px;margin-left: 750px;height: 45px;margin-top: 5px;" class="alert alert-danger">
+        <div *ngIf="form.controls.email.hasError('required')">Please Enter Email</div>
+        <div *ngIf="form.controls.email.hasError('email')">Please Enter Valid Email</div>
+    </div>
+</form>
+<form [formGroup]="form">
+    <div class="form-group">
+        <input type="text"class="form-control" maxlength="10" style="width: 350px;margin-left: 750px;margin-top: 10px;height: 45px;" placeholder="mobilenumber" formControlName="mobilenumber">
+    </div>
+    <div *ngIf="form.controls.mobilenumber.touched && form.controls.mobilenumber.invalid" style="width: 350px;margin-left: 750px;margin-top: 55px;height: 45px;" class="alert alert-danger">
+        <div *ngIf="form.controls.mobilenumber.hasError('required')">Please Enter Mobile Number</div>
+    </div>
+</form>
+
+    <select id="location" style="width: 350px; height: 35px; margin-left: 750px; margin-top: 5px;" name="location">
+      <option>*Country</option>  
+      <option>Australia</option>
+      <option>Algeria</option>
+      <option>Bangladesh</option>
+      <option>Belgium</option>
+      <option>Bhutan</option>
+      <option>Brazil</option>
+      <option>France</option>
+      <option>Germany</option>
+      <option>India</option>
+      <option>Iceland</option>
+      <option>Indonesia</option>
+      <option>Iran</option>
+      <option>Iraq</option>
+      <option>Ireland</option>
+      <option>Italy</option>
+      <option>Japan</option>
+      <option>Kenya</option>
+      <option>Korea, North</option>
+      <option>Myanmar (Burma)</option>
+      <option>Poland</option>
+      <option>Pakistan</option>
+      <option>Romania</option>
+      <option>South Africa</option>
+      <option>Sri Lanka</option>
+      <option>Switzerland</option>
+      <option>Thailand</option>
+      <option>Zimbabwe</option>
+  </select>
+
+<br>
+  <select id="state" style="width: 350px; height: 35px;margin-left: 750px; margin-top: 25px;" name="state">
+    <option>*State</option>  
+    <option>Andhra Pradesh (AP)</option>
+    <option>Arunachal Pradesh (AR)</option>
+    <option>Assam (AS)</option>
+    <option>Bihar (BR)
+    </option>
+    <option>Bhutan</option>
+    <option>Chhattisgarh (CG)
+    </option>
+    <option>Goa (GA)
+    </option>
+    <option>Gujarat (GJ)
+    </option>
+    <option>Haryana (HR)
+    </option>
+    <option>Himachal Pradesh (HP)
+    </option>
+    <option>Jammu and Kashmir (JK)
+    </option>
+    <option>Jharkhand (JH)
+    </option>
+    <option>Karnataka (KA)
+    </option>
+    <option>Kerala (KL)
+    </option>
+    <option>Madhya Pradesh (MP)
+    </option>
+    <option>Maharashtra (MH)
+    </option>
+    <option>KenyaManipur (MN)
+    </option>
+    <option>Meghalaya (ML)
+    </option>
+    <option>Myanmar (Burma)</option>
+    <option>Mizoram (MZ)
+    </option>
+    <option>Nagaland (NL)
+    </option>
+    <option>Odisha(OR)
+    </option>
+    <option>Punjab (PB)
+    </option>
+    <option>Rajasthan (RJ)
+    </option>
+    <option>Sikkim (SK)
+    </option>
+    <option>Tamil Nadu (TN)
+    </option>
+    <option>Telangana (TS)
+    </option>
+    <option>Tripura (TR)
+    </option>
+    <option>Uttar Pradesh (UP)
+    </option>
+    <option>Uttarakhand (UK)
+    </option>
+    <option>West Bengal (WB)
+    </option>
+</select>
+<br>
+<select id="address" style="width: 350px; height: 35px; margin-left: 750px; margin-top: 15px;">
+    <option>ADDRESS: Home</option> 
+    <option>ADDRESS: Company</option>
+</select>
+    <form [formGroup]="form">
+        <div class="form-group">
+            <input type="text"class="form-control" style="width: 350px;margin-left: 750px;margin-top: 10px;height: 45px;" placeholder="home" formControlName="home">
+        </div>
+    </form>
+        <form [formGroup]="form">
+            <div class="form-group">
+                <input type="text"class="form-control" style="width: 350px;margin-left: 750px;margin-top: 2px;height: 45px;" placeholder="company" formControlName="company">
+            </div>
+       </form>
+       
+
+       <div class="custom-control custom-checkbox custom-control-inline"  style="margin-left: 750px;">
+        <input type="checkbox" class="custom-control-input" id="defaultInline1">
+        <label class="custom-control-label" for="defaultInline1">Subscribe to newsletter</label>
+      </div>
+      <br>
+            
+  
+        <button type="button" style="margin-left: 750px;width: 180px;margin-top: 5px;" class="btn btn-primary" (click)="gotoemployeelist()">ADD USER</button>
+
+               
+    
+          
+          
